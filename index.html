@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信徒-信仰旅程的温暖家园与深度交流平台</title>
+    <meta name="description" content="信徒是面向基督徒及寻求信仰者的综合平台，提供每日灵修、圣经导读、赞美诗歌、教会动态与团契交流。在这里，与同路人一起行走信仰之路。" />
+    <meta name="keywords" content="信徒, 信仰, 基督教, 灵修, 圣经, 团契, 赞美诗, 见证分享, 教会生活" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: #faf7f2;
+            color: #2e2a26;
+            line-height: 1.7;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        .site-header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #ece4d8;
+            padding: 0 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+        .header-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-icon {
+            font-size: 2rem;
+            line-height: 1;
+        }
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #3b5e3b;
+            letter-spacing: 2px;
+        }
+        .logo-text span {
+            font-weight: 300;
+            color: #9a8c7a;
+            margin-left: 4px;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+        .main-nav ul {
+            display: flex;
+            gap: 2.2rem;
+        }
+        .main-nav a {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #48423c;
+            padding: 6px 2px;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        .main-nav a:hover {
+            color: #3b5e3b;
+            border-bottom-color: #3b5e3b;
+        }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .btn-search {
+            background: none;
+            border: 1px solid #d8cec0;
+            border-radius: 40px;
+            padding: 6px 16px;
+            font-size: 0.9rem;
+            color: #5c554c;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .btn-search:hover {
+            border-color: #3b5e3b;
+            color: #3b5e3b;
+        }
+        .btn-join {
+            background-color: #3b5e3b;
+            color: #fff;
+            border: none;
+            border-radius: 40px;
+            padding: 8px 22px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-join:hover {
+            background-color: #2f4d2f;
+        }
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #3b5e3b;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #f4eee6 0%, #eae1d5 100%);
+            padding: 4.5rem 5% 4rem;
+            text-align: center;
+        }
+        .hero-inner {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        .hero-inner h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #2f4d2f;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+        .hero-sub {
+            font-size: 1.3rem;
+            color: #6b5e4f;
+            margin-bottom: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        .hero-quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #4a4036;
+            background: rgba(255, 255, 255, 0.6);
+            border-left: 4px solid #b5a48f;
+            padding: 1.2rem 2rem;
+            border-radius: 0 20px 20px 0;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .btn-primary, .btn-outline {
+            display: inline-block;
+            padding: 12px 36px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.25s;
+        }
+        .btn-primary {
+            background-color: #3b5e3b;
+            color: #fff;
+            box-shadow: 0 4px 14px rgba(59, 94, 59, 0.25);
+        }
+        .btn-primary:hover {
+            background-color: #2f4d2f;
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            border: 1.5px solid #3b5e3b;
+            color: #3b5e3b;
+        }
+        .btn-outline:hover {
+            background-color: #3b5e3b;
+            color: #fff;
+        }
+
+        .main-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 3.5rem 5%;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2f4d2f;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #b5a48f;
+            border-radius: 2px;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+        .intro-text p {
+            font-size: 1.05rem;
+            color: #4a4036;
+            margin-bottom: 1.2rem;
+        }
+        .intro-stats {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.04);
+            text-align: center;
+        }
+        .stat-item {
+            margin-bottom: 1.8rem;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #3b5e3b;
+            line-height: 1.2;
+        }
+        .stat-label {
+            font-size: 0.95rem;
+            color: #7a6f62;
+            letter-spacing: 1px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3.5rem;
+        }
+        .card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #f0e8df;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.07);
+        }
+        .card-icon {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        .card h3 {
+            font-size: 1.3rem;
+            color: #2f4d2f;
+            margin-bottom: 0.6rem;
+        }
+        .card p {
+            color: #5f564c;
+            font-size: 0.95rem;
+        }
+
+        .featured-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+        .featured-left {
+            background-color: #eef3ec;
+            border-radius: 24px;
+            padding: 2.5rem;
+        }
+        .featured-left h3 {
+            font-size: 1.6rem;
+            color: #2f4d2f;
+            margin-bottom: 1.2rem;
+        }
+        .featured-list li {
+            padding: 0.9rem 0;
+            border-bottom: 1px dashed #c4cfc0;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        .featured-list li:last-child {
+            border-bottom: none;
+        }
+        .featured-date {
+            background-color: #3b5e3b;
+            color: #fff;
+            border-radius: 30px;
+            padding: 2px 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            white-space: nowrap;
+            margin-top: 5px;
+        }
+        .featured-list a {
+            font-weight: 500;
+            color: #3a3530;
+        }
+        .featured-list a:hover {
+            color: #3b5e3b;
+            text-decoration: underline;
+        }
+
+        .praise-block {
+            background-color: #faf7f2;
+            border-left: 5px solid #b5a48f;
+            padding: 2rem 2.5rem;
+            border-radius: 0 20px 20px 0;
+            margin: 3rem 0;
+            font-style: italic;
+            color: #5f564c;
+            font-size: 1.05rem;
+        }
+
+        .community-section {
+            background-color: #fff;
+            border-radius: 28px;
+            padding: 3rem;
+            margin: 4rem 0;
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.05);
+        }
+        .community-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .community-top .section-title {
+            margin-bottom: 0;
+        }
+        .community-tags {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+        .tag {
+            background-color: #f0ebe4;
+            color: #5c554c;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+        .tag:hover {
+            background-color: #3b5e3b;
+            color: #fff;
+        }
+        .topic-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .topic-item {
+            background-color: #faf7f2;
+            border-radius: 14px;
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+        .topic-item:hover {
+            background-color: #f0ebe4;
+        }
+        .topic-info strong {
+            display: block;
+            color: #3a3530;
+            margin-bottom: 4px;
+        }
+        .topic-info span {
+            font-size: 0.85rem;
+            color: #8b7f71;
+        }
+        .topic-count {
+            background-color: #e0d6c8;
+            border-radius: 30px;
+            padding: 4px 14px;
+            font-size: 0.8rem;
+            color: #4a4036;
+            white-space: nowrap;
+        }
+
+        .guide-section {
+            background-color: #f4eee6;
+            border-radius: 28px;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+        .guide-steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
+        }
+        .step {
+            flex: 1 1 200px;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 18px;
+        }
+        .step-number {
+            display: inline-block;
+            background-color: #3b5e3b;
+            color: #fff;
+            width: 44px;
+            height: 44px;
+            line-height: 44px;
+            border-radius: 50%;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .step h4 {
+            color: #2f4d2f;
+            margin-bottom: 0.5rem;
+        }
+        .step p {
+            font-size: 0.9rem;
+            color: #5f564c;
+        }
+
+        .faq-section {
+            margin: 4rem 0;
+        }
+        .faq-list {
+            margin-top: 1rem;
+        }
+        .faq-item {
+            background: #fff;
+            border-radius: 14px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ece4d8;
+        }
+        .faq-item h3 {
+            font-size: 1.15rem;
+            color: #2f4d2f;
+            margin-bottom: 0.5rem;
+        }
+        .faq-item p {
+            color: #5f564c;
+            font-size: 0.98rem;
+        }
+
+        .footer {
+            background-color: #2c2a27;
+            color: #b8ae9f;
+            padding: 3.5rem 5% 2rem;
+            margin-top: 2rem;
+        }
+        .footer-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2.5rem;
+        }
+        .footer h4 {
+            color: #e8e0d5;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        .footer p {
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+        .footer-links li {
+            margin-bottom: 0.6rem;
+        }
+        .footer-links a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        .footer-bottom {
+            border-top: 1px solid #4a443c;
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #8f8577;
+        }
+
+        @media (max-width: 900px) {
+            .main-nav {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .header-actions .btn-join {
+                display: none;
+            }
+            .intro-grid, .featured-split {
+                grid-template-columns: 1fr;
+            }
+            .topic-list {
+                grid-template-columns: 1fr;
+            }
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 600px) {
+            .hero-inner h1 {
+                font-size: 2.2rem;
+            }
+            .hero-sub {
+                font-size: 1.1rem;
+            }
+            .hero-section {
+                padding: 3rem 5%;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .community-section, .guide-section {
+                padding: 2rem 1.5rem;
+            }
+            .footer-inner {
+                grid-template-columns: 1fr;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="logo-area">
+                <span class="logo-icon">✝️</span>
+                <span class="logo-text">信徒<span>Believer</span></span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#devotion">每日灵修</a></li>
+                    <li><a href="#bible">圣经资源</a></li>
+                    <li><a href="#community">团契社区</a></li>
+                    <li><a href="#music">赞美诗歌</a></li>
+                    <li><a href="#faq">信仰问答</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn-search" onclick="alert('搜索功能即将开放，敬请期待')">🔍 搜索</button>
+                <button class="btn-join" onclick="alert('欢迎加入信徒大家庭！')">加入团契</button>
+                <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section" id="home">
+            <div class="hero-inner">
+                <h1>信徒 · 同路人</h1>
+                <p class="hero-sub">在真理中扎根，在恩典中成长</p>
+                <blockquote class="hero-quote">
+                    “你们必晓得真理，真理必叫你们得以自由。” —— 约翰福音 8:32
+                </blockquote>
+                <div class="hero-buttons">
+                    <a href="#devotion" class="btn-primary">开始今日灵修</a>
+                    <a href="#community" class="btn-outline">进入信仰社区</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="main-content">
+            <div class="intro-grid">
+                <div class="intro-text">
+                    <h2 class="section-title">欢迎回家，亲爱的信徒</h2>
+                    <p>无论你是在信仰路上刚刚起步，还是已经行走多年，这里都为你预备了属灵的粮草与同行的伙伴。「信徒」平台致力于连接每一位渴望认识真理的人，提供纯正的圣经教导、温暖的团契交流和丰富的属灵资源。</p>
+                    <p>我们相信，信仰不是孤岛上的独行，而是在群体中的彼此扶持。在这里，你可以阅读每日灵修、聆听赞美诗歌、参与话题讨论，也可以分享自己的见证与困惑。</p>
+                </div>
+                <div class="intro-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">3,200+</div>
+                        <div class="stat-label">每日灵修读者</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">120+</div>
+                        <div class="stat-label">团契小组</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">赞美诗歌</div>
+                    </div>
+                </div>
+            </div>
+
+            <section id="devotion">
+                <h2 class="section-title">每日灵修 · 吗哪新尝</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-icon">📖</div>
+                        <h3>今日经文</h3>
+                        <p>每日精选一段经文，附简短默想引导，帮助你在忙碌中安静片刻，聆听神的话语。</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🕊️</div>
+                        <h3>灵修日志</h3>
+                        <p>记录你的感动与祷告，建立个人的属灵日记，见证生命成长的每一步。</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🌟</div>
+                        <h3>见证分享</h3>
+                        <p>阅读来自各地信徒的真实见证，在别人的故事中看见神的信实与奇妙作为。</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">📚</div>
+                        <h3>读经计划</h3>
+                        <p>按主题或书卷设计的读经计划，帮助你系统性地研读圣经，建立稳定的灵修生活。</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="bible">
+                <h2 class="section-title">圣经资源 · 扎根真理</h2>
+                <div class="featured-split">
+                    <div class="featured-left">
+                        <h3>本周热门研经主题</h3>
+                        <ul class="featured-list">
+                            <li>
+                                <span class="featured-date">周一</span>
+                                <a href="#">信心与行为：雅各书的现代解读</a>
+                            </li>
+                            <li>
+                                <span class="featured-date">周三</span>
+                                <a href="#">诗篇中的哀叹与盼望</a>
+                            </li>
+                            <li>
+                                <span class="featured-date">周五</span>
+                                <a href="#">登山宝训：八福的深层含义</a>
+                            </li>
+                            <li>
+                                <span class="featured-date">主日</span>
+                                <a href="#">复活的确据：哥林多前书15章</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="featured-right" style="background-color:#faf7f2; border-radius:24px; padding:2rem;">
+                        <h3 style="color:#2f4d2f; margin-bottom:1.2rem;">🔍 圣经工具</h3>
+                        <p style="color:#5f564c; margin-bottom:1.5rem;">提供多种译本对照、原文词典、注释书资源，让研经更深入。</p>
+                        <ul style="color:#4a4036; font-size:0.95rem;">
+                            <li style="padding:0.3rem 0;">· 和合本 / 新译本 / ESV 对照</li>
+                            <li style="padding:0.3rem 0;">· 希腊文 / 希伯来文词典</li>
+                            <li style="padding:0.3rem 0;">· 圣经地图与历史背景</li>
+                            <li style="padding:0.3rem 0;">· 每日读经进度追踪</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <blockquote class="praise-block">
+                “我的心哪，你要称颂耶和华！凡在我里面的，也要称颂他的圣名！” —— 诗篇 103:1。愿我们的赞美如馨香之祭，达到宝座前。
+            </blockquote>
+
+            <section id="music">
+                <h2 class="section-title">赞美诗歌 · 心灵的旋律</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-icon">🎵</div>
+                        <h3>经典圣诗</h3>
+                        <p>从《奇异恩典》到《祢真伟大》，重温跨越时代的信心之歌，感受传统的厚重。</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🎤</div>
+                        <h3>现代敬拜</h3>
+                        <p>精选当代敬拜赞美歌曲，帮助你在敬拜中与神亲近，心灵诚实。</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🎼</div>
+                        <h3>乐谱与和弦</h3>
+                        <p>提供常用诗歌的简谱、五线谱与和弦谱，方便团契与个人练习。</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🎧</div>
+                        <h3>诗歌故事</h3>
+                        <p>每一首诗歌背后都有故事。了解创作背景，让歌唱更有深度。</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="community" class="community-section">
+                <div class="community-top">
+                    <h2 class="section-title">团契社区 · 彼此相连</h2>
+                    <div class="community-tags">
+                        <span class="tag"># 新人报到</span>
+                        <span class="tag"># 祷告事项</span>
+                        <span class="tag"># 见证分享</span>
+                        <span class="tag"># 神学讨论</span>
+                    </div>
+                </div>
+                <div class="topic-list">
+                    <div class="topic-item">
+                        <div class="topic-info">
+                            <strong>如何开始稳定的灵修生活？</strong>
+                            <span>发布于 团契生活 · 32 回复</span>
+                        </div>
+                        <span class="topic-count">热度 89</span>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-info">
+                            <strong>为近期面临患难的主内肢体代祷</strong>
+                            <span>发布于 代祷墙 · 18 回复</span>
+                        </div>
+                        <span class="topic-count">代祷 45</span>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-info">
+                            <strong>分享：神在职场中给我的奇妙带领</strong>
+                            <span>发布于 见证分享 · 27 回复</span>
+                        </div>
+                        <span class="topic-count">热度 76</span>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-info">
+                            <strong>关于“预定论”与“自由意志”的探讨</strong>
+                            <span>发布于 神学探讨 · 41 回复</span>
+                        </div>
+                        <span class="topic-count">热度 102</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="guide-section">
+                <h2 class="section-title">新信徒指南 · 第一步</h2>
+                <div class="guide-steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <h4>认识福音</h4>
+                        <p>了解耶稣基督的救恩，明白信仰的基本真理。</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <h4>开始读经</h4>
+                        <p>从《马可福音》或《箴言》开始，每天读一点，祷告求明白。</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <h4>加入团契</h4>
+                        <p>找到附近的教会或小组，与众肢体一起敬拜、学习、彼此扶持。</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <h4>恒切祷告</h4>
+                        <p>把祷告当作与神的对话，凡事交托，在恩典中不断成长。</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="faq" class="faq-section">
+                <h2 class="section-title">常见信仰问答</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3>如何确定自己是真正的信徒？</h3>
+                        <p>真正的信心不仅停留在头脑的认知，更带来生命的转变。若你承认自己是罪人，接受耶稣基督为救主，并愿意让祂掌管你的生活，圣灵会在你里面做工，使你结出信心的果子。若你对此有疑惑，建议与教会的牧者或成熟的基督徒交通。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>读经总是感觉枯燥怎么办？</h3>
+                        <p>这是许多信徒都会经历的阶段。可以尝试改变读经方式：先祷告求圣灵开启心窍，结合注释书或灵修材料，从较易理解的经卷（如约翰福音、诗篇）开始，并记录感动。重要的是保持与神的对话，而非完成一项任务。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>如何参与教会的服侍？</h3>
+                        <p>可以从身边的小事做起，例如参与赞美队、接待、主日学或探访。先向教会的负责同工表达愿意服侍的心志，他们会根据你的恩赐和感动给予合适的安排。切记服侍的根基是爱神与爱人，而非表现自己。</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div>
+                <h4>✝️ 信徒 Believer</h4>
+                <p>一个为渴慕真理、彼此扶持的信徒所预备的温暖家园。愿我们在真道上同归于一，长成满有基督的身量。</p>
+            </div>
+            <div>
+                <h4>快速导航</h4>
+                <ul class="footer-links">
+                    <li><a href="#devotion">每日灵修</a></li>
+                    <li><a href="#bible">圣经资源</a></li>
+                    <li><a href="#music">赞美诗歌</a></li>
+                    <li><a href="#community">团契社区</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>帮助支持</h4>
+                <ul class="footer-links">
+                    <li><a href="#faq">信仰问答</a></li>
+                    <li><a href="#">新信徒指南</a></li>
+                    <li><a href="#">联系牧者</a></li>
+                    <li><a href="#">网站反馈</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>联系方式</h4>
+                <p>📧 fellowship@believer.example</p>
+                <p>🕊️ 愿平安与喜乐常与你同在</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2025 信徒 Believer 平台 · 以圣灵为引导，以真理为根基
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            var nav = document.querySelector('.main-nav');
+            if (nav.style.display === 'flex') {
+                nav.style.display = 'none';
+            } else {
+                nav.style.display = 'flex';
+                nav.style.position = 'absolute';
+                nav.style.top = '70px';
+                nav.style.left = '0';
+                nav.style.width = '100%';
+                nav.style.backgroundColor = '#fff';
+                nav.style.padding = '1rem 5%';
+                nav.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+                nav.style.borderRadius = '0 0 12px 12px';
+            }
+        }
+    </script>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+  </html>
